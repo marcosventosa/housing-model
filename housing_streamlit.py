@@ -273,7 +273,7 @@ def main():
 
         st.subheader("Shocks Opcionales")
 
-        apply_interest_shock = st.checkbox("Aplicar shock en la tasa de interés")
+        apply_interest_shock = st.checkbox("Aplicar shock en la tasa de interés", value=True)
         if apply_interest_shock:
             shock_time_r = st.number_input(
                 "Periodo para el shock de interés",
@@ -287,11 +287,11 @@ def main():
             shock_time_r = None
             interest_after_shock = None
 
-        apply_cost_shock = st.checkbox("Aplicar shock en el coste de construcción")
+        apply_cost_shock = st.checkbox("Aplicar shock en el coste de construcción", value=True)
         if apply_cost_shock:
             shock_time_c = st.number_input(
                 "Periodo para el shock de coste",
-                min_value=1, max_value=T, value=int(T/2)
+                min_value=1, max_value=T, value=int(T/1.5)
             )
             cost_after_shock = st.number_input(
                 "Nuevo coste de construcción (C')",
@@ -315,6 +315,7 @@ def main():
             shock_time_X = None
             X_after_shock = None
 
+        
         apply_Y_shock = st.checkbox("Aplicar shock en la renta (Y)")
         if apply_Y_shock:
             shock_time_Y = st.number_input(
